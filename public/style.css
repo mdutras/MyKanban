@@ -11,11 +11,16 @@ p {
     margin: 0px;
 }
 
+h3{
+    color: goldenrod;
+}
+
 #content{
     margin: 0 pt;
     background-color: slategray;
-    height:75%;
-    width: 100%;
+    height:73% ;
+    width: 100% - 10px;
+    padding: 10px;
 }
 
 #options{
