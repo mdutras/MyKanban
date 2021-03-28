@@ -1,50 +1,44 @@
-function eraseAll(){
-    sessionStorage.clear();
-}
-
-function add(){
-    let actual = Number(sessionStorage.getItem('clicks'));
-    sessionStorage.setItem('clicks', actual + 1);
-    console.log(sessionStorage.getItem('clicks'));
-}
-
-function addOne(){
-    console.log(this)
-}
-
-function Content({qtd}){
-        let cont = []
-        for(let i = 0; i < qtd; i++){
-            cont.push(<p key={i}>Plus one</p>)
-        }
-        return(
-            <>
-            {cont}
-            </>
-        )
-        
+function Objs({qtd}){
+    let els = Array();
+    for(let i = 0; i < qtd; i++){
+        els.push(<p key={i}>Plus one</p>);
+    }
+    return(
+        <>
+        {els}
+        </>
+    )
 }
 
 class Board extends React.Component{
     constructor(props){
         super(props);
-        this.state = {qtd:props.qtd};
-        addOne.bind(this.state);
+        this.state = {clicks:2};
+        this.add = this.add.bind(this);
+    }
+
+    add(){
+        this.setState(prevState => ({
+            clicks: prevState.clicks + 1
+          }));
     }
 
     render(){
         return(
         <>
-            <Content qtd = {this.state.qtd}/>
+            <div id='content'>
+                <Objs qtd={this.state.clicks}/>
+            </div>
+            <div id='options' onClick={this.add}>
+                <button>Aumentar p's</button>
+                <p>Good night!</p>
+            </div>
         </>
         )
     }
 }
-sessionStorage.setItem('clicks', 2);
-let clicks = sessionStorage.getItem("clicks");
-console.log(clicks);
-addOne.bind
+
 ReactDOM.render(
-    <Board qtd={clicks}/>,
-    document.getElementById('content')
-)
+    <Board/>,
+    document.getElementById('root')
+);

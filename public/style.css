@@ -15,10 +15,14 @@ h3{
     color: goldenrod;
 }
 
+#root{
+    height:100%;
+}
+
 #content{
     margin: 0 pt;
-    background-color: slategray;
-    height:73% ;
+    background-color:aquamarine;
+    height: 72%;
     width: 100% - 10px;
     padding: 10px;
 }
