@@ -8,13 +8,11 @@
         <script type='text/babel' src="main.js"></script>
         <link href="style.css" rel='stylesheet'>
     </head>
-    <body>
-        <div id='content' onclick = 'add()'>
-            <div id='board'> 
-                <p>Hello World!</p>
-            </div>
+    <body onbeforeunload="eraseAll()">
+        <div id='content'>
         </div>
         <div id='options'>
+            <button onclick = 'addOne()'>Aumentar p's</button>
             <p style="color:blue">Good night!</p>
         </div>
     </body>
