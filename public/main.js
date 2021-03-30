@@ -13,8 +13,23 @@ function Objs({qtd}){
 class Board extends React.Component{
     constructor(props){
         super(props);
-        this.state = {clicks:2};
+        this.state = {
+            clicks:2, 
+            hide: true,
+            contentStyle:{
+                height: window.innerHeight,
+                
+            },
+            menuStyle:{
+                display:"block",
+                backgroundColor:"red",
+                height:"21%",
+                margin: "1% 1% 0% 1%"
+            }
+        };
         this.add = this.add.bind(this);
+        this.hide = this.hide.bind(this);
+
     }
 
     add(){
@@ -23,17 +38,31 @@ class Board extends React.Component{
           }));
     }
 
+    hide(){
+        this.setState(prevState => ({
+            hide: !prevState.hide
+          }));
+    }
+
     render(){
+        console.log(this.state.menuStyle);
+        const menu = this.state.hide ? (
+            <ul id='menu'>
+                <li className='menuItem' onClick={this.add}>Aumentar p</li>
+                <li className='menuItem' onClick={this.hide}>Hide</li>
+                <li className='menuItem' ><a href='\ping'>Good night</a></li>
+            </ul>)
+            :
+            <>
+                <button id="show" onClick={this.hide}>Show</button>
+            </>
         return(
-        <>
-            <div id='content'>
+            <>
+            <div id='content' style={this.state.contentStyle}>
                 <Objs qtd={this.state.clicks}/>
             </div>
-            <div id='options' onClick={this.add}>
-                <button>Aumentar p's</button>
-                <p>Good night!</p>
-            </div>
-        </>
+                {menu}
+            </>
         )
     }
 }
