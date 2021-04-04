@@ -18,7 +18,7 @@ h3{
 
 #content{
     padding: 15px;
-    background-color: aquamarine;
+    background-color:#42FFFF;
 }
 
 #menu{
@@ -59,7 +59,7 @@ h3{
 #show{
     opacity: 0%;
     left: 5px;
-    position: absolute;
+    position: fixed;
     bottom: 5px;
     border-style: none;
     color: antiquewhite;
@@ -74,14 +74,55 @@ h3{
 }
 
 .columns{
-    border: solid 2px black;
-    overflow-x: scroll;
+    border: solid 1px black;
     width: 140pt;
     height: 90%;
     padding: 5px;
+    background-color:#7FFFD4;
 }
 
-.columns::-webkit-scrollbar {
+.columnTitle{
+    margin: auto;
+    font-size: 18pt;
+    border: dotted 1px black;
+    background-color: #CFE3FF;
+    height: 20pt;
+    width: 97%;
+    text-align: center;
+}
+
+.addButton{
+    border: solid 1px black;
+    margin: auto;
+    background-color: #FFC7FC;
+    width: 100%;
+    outline: none;
+}
+
+.Row{
+    border: solid 1px black;
+    background-color: #B8F9AB;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 25px;
+    font-size: 16px;
+}
+
+.Row p{
+    user-select: none;
+    padding-top: 2px;
+}
+
+.Rows{
+    height: 89%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow-x: scroll;
+}
+
+.Rows::-webkit-scrollbar {
     display: none;
 }
 
@@ -91,22 +132,54 @@ h3{
     top: 0;
     left: 0;
     background-color: #404040;
-    opacity: 50%
+    opacity: 50%;
+    overflow : hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .expand{
-    justify-content: center;
-    position: 'absolute';
-    height: 400;
-    width: 640;
-    background-color: 'teal';
+    position: absolute;
+    background-color: teal;
 }
- .title{
-     display: block;
-     width: 90%;
- }
 
- .description{
-     display:block;
-     width: 90%;
- }
+.title, .description{
+    border-bottom: 3px solid black;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: auto;
+    display:block;
+}
+
+.title{
+    width: 90%;
+    height: 10%;
+    margin-bottom: 15px;
+}
+
+.title:focus{
+    background-color: #404040;
+    transition: 1s;
+}
+
+.description{
+    width: 90%;
+    height: 70%;
+    resize: none;
+}
+
+.title:focus, .description:focus{
+    background-color: #404040;
+    border-bottom: 3px solid red;
+    outline: none;
+    transition: 1s;
+}
+
+.expandLabel{
+    display: block;
+    color:white;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
