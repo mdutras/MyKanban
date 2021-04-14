@@ -24,6 +24,10 @@ class Row extends React.Component{
                 top: 0.1 * window.innerHeight,
                 width: 0.6 * window.innerWidth,
                 height: 0.8 * window.innerHeight
+            },
+            overlayStyle:{
+                width: window.innerWidth,
+                height: window.innerHeight
             }
         }
         console.log(window.innerHeight, window.innerWidth)
@@ -48,6 +52,13 @@ class Row extends React.Component{
                 top: 0.1 * window.innerHeight,
                 width: 0.6 * window.innerWidth,
                 height: 0.8 * window.innerHeight,
+            }
+        }));
+
+        this.setState(() =>({
+            overlayStyle : {
+                width: document.body.clientWidth,
+                height: document.body.clientHeight
             }
         }));
     }
@@ -77,6 +88,7 @@ class Row extends React.Component{
         }
 
         let fullOverlayStyle = {
+            ...this.state.overlayStyle,
             display: this.state.expandedDisplay
         }
         return(
@@ -117,15 +129,19 @@ class Column extends React.Component{
             rows.push(<Row key={i} row={i} column={this.state.columnIndex} index={i}/>);
         }
         return(
-        <>
+        <div className='columns'>
             <input type="text" className="columnTitle" placeholder="Título"></input>
             <div className="Rows">
                 {rows}
             </div>
             <button className="addButton" onClick={this.add}>+</button>
-        </>
+        </div>
         )
     }
+}
+
+class add_Column extends React.Component{
+    
 }
 
 class Board extends React.Component{
@@ -140,6 +156,8 @@ class Board extends React.Component{
         };
         this.add = this.add.bind(this);
         this.hide = this.hide.bind(this);
+        this.adapt = this.adapt.bind(this);
+        window.addEventListener('resize', this.adapt);
 
     }
 
@@ -152,6 +170,14 @@ class Board extends React.Component{
     hide(){
         this.setState(prevState => ({
             hide: !prevState.hide
+        }));
+    }
+
+    adapt(){
+        this.setState(() =>({
+            contentStyle:{
+                height: window.innerHeight - 30
+            }
         }));
     }
 
@@ -169,12 +195,10 @@ class Board extends React.Component{
         return(
             <>
             <div id='content' style={this.state.contentStyle}>
-                <div className='columns'>
-                    <Column column = {0}/>
-                </div>
-                
+                <Column column = {0}/>
+                <Column column = {1}/>
             </div>
-                {menu}
+                {/* {menu} */}
             </>
         )
     }

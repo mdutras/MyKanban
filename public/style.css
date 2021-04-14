@@ -74,9 +74,11 @@ h3{
 }
 
 .columns{
+    margin-right: 10x;
+    display: inline-block;
     border: solid 1px black;
     width: 140pt;
-    height: 90%;
+    height: 100%;
     padding: 5px;
     background-color:#7FFFD4;
 }
@@ -99,6 +101,13 @@ h3{
     outline: none;
 }
 
+.Rows{
+    height: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow-x: scroll;
+}
+
 .Row{
     border: solid 1px black;
     background-color: #B8F9AB;
@@ -113,13 +122,6 @@ h3{
 .Row p{
     user-select: none;
     padding-top: 2px;
-}
-
-.Rows{
-    height: 89%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    overflow-x: scroll;
 }
 
 .Rows::-webkit-scrollbar {
@@ -156,21 +158,18 @@ h3{
     width: 90%;
     height: 10%;
     margin-bottom: 15px;
-}
-
-.title:focus{
-    background-color: #404040;
-    transition: 1s;
+    background-color: #339A9A;
 }
 
 .description{
     width: 90%;
-    height: 70%;
+    height: 65%;
     resize: none;
+    background-color: #339A9A;
 }
 
 .title:focus, .description:focus{
-    background-color: #404040;
+    color: white;
     border-bottom: 3px solid red;
     outline: none;
     transition: 1s;
